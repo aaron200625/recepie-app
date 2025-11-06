@@ -6,7 +6,6 @@ const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  // 🍽 FETCH RECIPES FROM THEMEALDB
   const fetchRecipes = async (query) => {
     try {
       const response = await fetch(
@@ -30,7 +29,7 @@ const Home = () => {
 
   return (
     <div className="Home">
-      {/* 🔍 SEARCH BAR */}
+    
       <form onSubmit={handleSearch} className="search-form">
         <input
           type="text"
@@ -44,8 +43,7 @@ const Home = () => {
         </button>
       </form>
 
-      {/* 🧁 RECIPE LIST */}
-      <div className="recepie-grid">
+  <div className="recepie-grid">
         {recipes.map((recipe) => (
           <RecepieApp recipe={recipe} key={recipe.idMeal} />
         ))}
