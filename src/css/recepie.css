@@ -15,7 +15,7 @@
   transform: scale(1.05);
 }
 
-.recepie-postrer img {
+.recepie-poster img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -47,6 +47,11 @@
   cursor: pointer;
    border-radius: 50%;
 }
+
+.recepie-overlay button.active {
+  color: #ff4757;
+}
+
 .recepie-info {
   padding: 1rem;
 }

@@ -29,7 +29,7 @@ const RecepieApp = ({ recipe }) => {
             className={`favorite-btn ${favourite ? "active" : ""}`}
             onClick={onFavouriteClick}
           >
-            ❤
+             ❤
           </button>
         </div>
 
