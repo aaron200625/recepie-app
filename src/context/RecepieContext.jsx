@@ -5,7 +5,10 @@ const RecepieContext = createContext();
 export const useRecepieContext = () => useContext(RecepieContext);
 
 export const RecepieProvider = ({ children }) => {
-  const [favourites, setFavourites] = useState([]);
+   const [favourites, setFavourites] = useState(() => {
+    const saved = localStorage.getItem("favourites");
+    return saved ? JSON.parse(saved) : []; 
+  });
 
 
   useEffect(() => {

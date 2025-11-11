@@ -46,12 +46,13 @@ const RecepieApp = ({ recipe }) => {
 
      
         <button onClick={handleToggleVisibility} id="toggle-button">
-          {isVisible ? "Hide Ingredients" : "Show Ingredients"}
+          {isVisible ? "Hide Recepie" : "Show Recepie"}
         </button>
 
       
         {isVisible && (
           <div className="ingredients">
+            <h3>Ingredients</h3>
             <ul>
               {Array.from({ length: 20 }).map((_, i) => {
                 const ingredient = recipe[`strIngredient${i + 1}`];
@@ -64,10 +65,31 @@ const RecepieApp = ({ recipe }) => {
                   );
                 }
                 return null;
+                
               })}
             </ul>
-          </div>
+            {recipe.strInstructions && (
+      <div className="instructions">
+        <h3>Instructions</h3>
+        <ul>
+          {recipe.strInstructions
+            .split(/[\r\n]+|(?<=\.)\s+/) // split by new lines or full stops
+            .map((step, index) => {
+              const cleanStep = step.trim();
+              if (cleanStep) {
+                return <li key={index}>{cleanStep}</li>;
+              }
+              return null;
+            })}
+        </ul>
+      </div>
+    )} 
+        
+      </div>
+   
+        
         )}
+        
       </div>
     </div>
   );
