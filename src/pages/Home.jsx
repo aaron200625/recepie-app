@@ -5,25 +5,42 @@ import "../css/home.css";
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const fetchRecipes = async (query) => {
     try {
+      setLoading(true);
+      setError("");
+
       const response = await fetch(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
       );
+
       const data = await response.json();
+
+      
       setRecipes(data.meals || []);
-    } catch (error) {
-      console.error("Error fetching recipes:", error);
+    } catch (err) {
+      setError("Could not load recipes.");
+    } finally {
+      setLoading(false);
     }
   };
 
+ 
   useEffect(() => {
-    fetchRecipes(searchQuery);
+    fetchRecipes("");
   }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
+
+    if (searchQuery.trim() === "") {
+      setError("Search cannot be empty");
+      return;
+    }
+
     fetchRecipes(searchQuery);
   };
 
@@ -38,12 +55,22 @@ const Home = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button type="submit" className="search-button">
-          Search
-        </button>
+        <button type="submit" className="search-button">Search</button>
       </form>
 
-  <div className="recepie-grid">
+    
+      {loading && <p className="loading">Loading recipes...</p>}
+
+     
+      {error && !loading && <p className="error">{error}</p>}
+
+     
+      {!loading && recipes.length === 0 && (
+        <p className="no-results">No recipes found</p>
+      )}
+
+  
+      <div className="recepie-grid">
         {recipes.map((recipe) => (
           <RecepieApp recipe={recipe} key={recipe.idMeal} />
         ))}

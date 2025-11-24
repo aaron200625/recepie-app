@@ -67,3 +67,36 @@
   box-sizing: border-box;
   margin-left: 50px;
 }
+.loading {
+ color: #E66A00;
+  justify-content: center;
+  font-size: 40px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  margin: 0 auto 2rem;
+  margin-top: 200px;
+}
+        
+.no-results {
+ color: #E66A00;
+  justify-content: center;
+  font-size: 40px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+ margin: 0 auto 2rem;
+  margin-top: 200px;
+  
+}
+
+.error{
+   color: #E66A00;
+  justify-content: center;
+  font-size: 40px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+ margin: 0 auto 2rem;
+  margin-top: 200px;
+}

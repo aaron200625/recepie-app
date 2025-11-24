@@ -1,0 +1,81 @@
+
+
+.recipe-details {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 20px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #222;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+
+.recipe-details h1 {
+  font-size: 28px;
+  margin: 8px 0 14px;
+  text-align: center;
+  font-weight: 700;
+}
+
+
+.recipe-details .details-img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 12px auto;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+
+.recipe-details h2,
+.recipe-details h3 {
+  color: #ff7b00;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+
+.recipe-details .ingredients ul {
+  margin: 0;
+  padding-left: 18px;
+  list-style: disc;
+}
+
+.recipe-details .ingredients li {
+  padding: 6px 0;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+
+.recipe-details .instructions ul,
+.recipe-details .instructions ol {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.7;
+  font-size: 15.5px;
+  color: #333;
+}
+
+.recipe-details .instructions li {
+  margin: 8px 0;
+}
+
+
+@media (min-width: 720px) {
+  .recipe-details {
+    padding: 28px;
+  }
+}
+
+.recipe-details p {
+  text-align: center;
+  color: #666;
+}
+
+
